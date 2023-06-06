@@ -7,7 +7,7 @@ def select_all():
     albums = []
 
     sql = "SELECT * FROM albums"
-    results = run_sql
+    results = run_sql(sql)
 
     for row in results:
         album = Album(row["album_name"],
@@ -54,17 +54,17 @@ def update(album):
     values = [album.album_name, album.id]
     run_sql(sql, values)
         
-def tasks_for_user(artist):
-    albums = []
+# def albums_for_artist(artist):
+#     albums = []
 
-    sql = 'SELECT * FROM albums WHERE user_id = %s'
-    values = [artist.id]
-    results = run_sql(sql, values)
+#     sql = 'SELECT * FROM albums WHERE user_id = %s'
+#     values = [artist.id]
+#     results = run_sql(sql, values)
 
-    for row in results:
-        album = Album(row["album_name"],
-                    artist,
-                    row["id"]
-                    )
-        albums.append(album)
-    return albums
+#     for row in results:
+#         album = Album(row["album_name"],
+#                     artist,
+#                     row["id"]
+#                     )
+#         albums.append(album)
+#     return albums

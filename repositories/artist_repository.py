@@ -7,7 +7,7 @@ def select_all():
     artists = []
 
     sql = "SELECT * FROM artists"
-    results = run_sql
+    results = run_sql(sql)
 
     for row in results:
         artist = Artist(row["artist_name"],
@@ -45,7 +45,7 @@ def delete_all():
     run_sql(sql)
 
 def delete(id):
-    sql = "DELETE FROM atists WHERE id = %s"
+    sql = "DELETE FROM artists WHERE id = %s"
     values = [id]
     run_sql(sql, values)
 
